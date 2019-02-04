@@ -11,7 +11,6 @@ const path = require('path');
 const fuzzy = require('fuzzy');
 
 
-const contents = fs.readFileSync('../src/components/Calls/HaiChant.vue', { encoding: 'utf-8' });
 
 
 

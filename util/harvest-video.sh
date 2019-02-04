@@ -69,7 +69,7 @@ lowFilename="${lowFilename%.*}_${ss}-${to}"
 
 thumbnailFilename=${highFilename}.jpg
 
-echo "videoFilenames[0]:${videosFilename[0]}, videoFilenames[1]:${videoFilenames[1]}, video:${video}, ss:${ss}, to:${to}, videoFilenames:${videoFilenames}, videoFilenames[0]:${videoFilenames[0]}, videoFilenames[1]:${videoFilenames[1]}, lowFilename:${highFilename}, highExtension:${highExtension}, lowExtension:${lowExtension}, thumbnailFilename:${thumbnailFilename}"
+echo "videoFilenames[0]:${videosFilename[0]}, videoFilenames[1]:${videoFilenames[1]}, video:${video}, ss:${ss}, to:${to}, videoFilenames:${videoFilenames}, videoFilenames[0]:${videoFilenames[0]}, videoFilenames[1]:${videoFilenames[1]}, lowFilename:${lowFilename}, highFilename:${highFilename}, highExtension:${highExtension}, lowExtension:${lowExtension}, thumbnailFilename:${thumbnailFilename}"
 
 # Skip download if we already have the video file
 if [ ! -f "../static/vid/${videoFilenames[0]}" ]; then
@@ -87,11 +87,11 @@ if [ ! -f "../static/img/$thumbnailFilename" ]; then
 fi
 
 # created trimmed high video if it doesnt exist already
-if [ ! -f "../static/vid/${videoFilenames[1]}" ]; then
+if [ ! -f "../static/vid/${highFilename}.mp4" ]; then
   ffmpeg -i "${videoFilenames[0]}" -ss "${ss}" -to "${to}" -y -vf drawtext="text='HIGH: fontcolor=white: fontsize=18: x=10: y=5'" ../static/vid/${highFilename}.mp4
 fi
 
 # create trimmed low video if it doesnt exist already
-if [ ! -f "../static/vid/${videoFilenames[1]}" ]; then
+if [ ! -f "../static/vid/${lowFilename}.webm" ]; then
   ffmpeg -i "${videoFilenames[1]}" -ss "${ss}" -to "${to}" -y "../static/vid/${lowFilename}.webm"
 fi
