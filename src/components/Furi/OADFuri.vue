@@ -1,20 +1,7 @@
 <template>
-<div class="ppph">
-  <h3>PPPH</h3>
-  <ul>
-    <li>
-      Pan
-    </li>
-    <li>
-      Pan
-    </li>
-    <li>
-      Pan
-    </li>
-    <li>
-      Hiuu
-    </li>
-  </ul>
+<div class="oad-furi">
+  <h3>OAD</h3>
+  <p>Over Action Dolphin</p>
   <vue-plyr>
     <video :poster="videoPoster" :src="videoHigh.src">
       <source :src="videoLow.src" :type="videoLow.type" :size="videoLow.size">
@@ -27,25 +14,25 @@
 
 <script>
 export default {
-  name: 'PPPH',
+  name: 'OADFuri',
   data() {
     return {
-      sauce: 'tbd',
-      ss: '4:23',
-      to: '7:28',
+      sauce: 'https://www.youtube.com/watch?v=D37HA6vYMyM',
+      ss: '0:25',
+      to: '0:29',
       videoHigh: {
-        src: "/static/vid/mSvrMVGpMiE_4:23-7:28.mp4",
+        src: "/static/vid/D37HA6vYMyM_0:25-0:29.mp4",
         type: "video/mp4",
         size: "720"
       },
       videoLow: {
-        src: "/static/vid/mSvrMVGpMiE_4:23-7:28.webm",
+        src: "/static/vid/D37HA6vYMyM_0:25-0:29.webm",
         type: "video/webm",
         size: "360"
       },
-      videoPoster: "/static/img/mSvrMVGpMiE_4:23-7:28.jpg",
+      videoPoster: "/static/img/D37HA6vYMyM_0:25-0:29.jpg",
     }
-  }
+  },
 }
 </script>
 

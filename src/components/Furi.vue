@@ -14,6 +14,12 @@
       <li>
         <router-link to="/furi/fuwa">Fuwa</router-link>
       </li>
+      <li>
+        <router-link to="/furi/romance">Romance</router-link>
+      </li>
+      <li>
+        <router-link to="/furi/oad">OAD</router-link>
+      </li>
     </ul>
     <router-view></router-view>
   </div>

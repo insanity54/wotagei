@@ -3,14 +3,15 @@ import Router from 'vue-router';
 import Main from '@/components/Main';
 import Calls from '@/components/Calls';
 import StandardMix from '@/components/Calls/StandardMix';
-import HaiChant from '@/components/Calls/HaiChant';
+import HaiCall from '@/components/Calls/HaiCall';
 import HaiCombo from '@/components/Calls/HaiCombo';
-import PPPH from '@/components/Calls/PPPH';
 import Furi from '@/components/Furi';
 import StandardFuri from '@/components/Furi/StandardFuri';
 import HaiFuri from '@/components/Furi/HaiFuri';
 import KechaFuri from '@/components/Furi/KechaFuri';
 import FuwaFuri from '@/components/Furi/FuwaFuri';
+import RomanceFuri from '@/components/Furi/RomanceFuri';
+import OADFuri from '@/components/Furi/OADFuri';
 
 
 Vue.use(Router)
@@ -32,16 +33,12 @@ export default new Router({
           component: StandardMix
         },
         {
-          path: 'ppph',
-          component: PPPH
-        },
-        {
           path: 'hai-combo',
           component: HaiCombo
         },
         {
           path: 'hai-chant',
-          component: HaiChant
+          component: HaiCall
         },
       ]
     },
@@ -65,6 +62,14 @@ export default new Router({
         {
           path: 'fuwa',
           component: FuwaFuri
+        },
+        {
+          path: 'romance',
+          component: RomanceFuri
+        },
+        {
+          path: 'oad',
+          component: OADFuri
         },
       ]
     },

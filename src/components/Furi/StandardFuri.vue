@@ -2,11 +2,12 @@
 <div class="standard-furi">
   <h3>Standard</h3>
   <vue-plyr>
-    <video poster="/static/img/_5:29-5:34:29-5:34.jpg" src="/static/vid/_5:29-5:34.mp4">
-      <source src="/static/vid/_5:29-5:34.webm" type="video/webm" size="360">
-      <source src="/static/vid/_5:29-5:34.mp4" type="video/mp4" size="720">
+    <video :poster="videoPoster" :src="videoHigh.src">
+      <source :src="videoLow.src" :type="videoLow.type" :size="videoLow.size">
+      <source :src="videoHigh.src" :type="videoHigh.type" :size="videoHigh.size">
     </video>
   </vue-plyr>
+
   <a :href="sauce" target="_blank">Video Source</a>
 </div>
 </template>
@@ -22,6 +23,17 @@ export default {
       sauce: 'https://www.youtube.com/watch?v=OUldsLhOMtc',
       ss: '5:29',
       to: '5:34',
+      videoHigh: {
+        src: "/static/vid/OUldsLhOMtc_5:29-5:34.mp4",
+        type: "video/mp4",
+        size: "720"
+      },
+      videoLow: {
+        src: "/static/vid/OUldsLhOMtc_5:29-5:34.webm",
+        type: "video/webm",
+        size: "360"
+      },
+      videoPoster: "/static/img/OUldsLhOMtc_5:29-5:34.jpg",
     }
   },
 }

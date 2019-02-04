@@ -88,7 +88,7 @@ fi
 
 # created trimmed high video if it doesnt exist already
 if [ ! -f "../static/vid/${highFilename}.mp4" ]; then
-  ffmpeg -i "${videoFilenames[0]}" -ss "${ss}" -to "${to}" -y -vf drawtext="text='HIGH: fontcolor=white: fontsize=18: x=10: y=5'" ../static/vid/${highFilename}.mp4
+  ffmpeg -i "${videoFilenames[0]}" -ss "${ss}" -to "${to}" -y "../static/vid/${highFilename}.mp4"
 fi
 
 # create trimmed low video if it doesnt exist already

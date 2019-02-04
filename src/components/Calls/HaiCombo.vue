@@ -1,29 +1,35 @@
 <template>
 <div class="hai-combo">
-  <h3>Hai Combo</h3>
+  <h3>Hai Combo / PPPH</h3>
+  <vue-plyr>
+    <video :poster="videoPoster" :src="videoHigh.src">
+      <source :src="videoLow.src" :type="videoLow.type" :size="videoLow.size">
+      <source :src="videoHigh.src" :type="videoHigh.type" :size="videoHigh.size">
+    </video>
+  </vue-plyr>
   <a :href="sauce" target="_blank">Video Source</a>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Calls',
+  name: 'HaiCombo',
   data() {
     return {
-      sauce: 'tbd',
-      ss: '4:23',
-      to: '7:28',
-      video: {
-        sources: [{
-          src: '/static/vid/mSvrMVGpMiE.mp4',
-          type: 'video/mp4'
-        }],
-        options: {
-          autoplay: false,
-          volume: 0.6,
-          poster: '/static/img/mSvrMVGpMiE.jpg'
-        }
-      }
+      sauce: 'https://www.youtube.com/watch?v=OUldsLhOMtc',
+      ss: '0:55',
+      to: '2:27',
+      videoHigh: {
+        src: "/static/vid/OUldsLhOMtc_0:55-2:27.mp4",
+        type: "video/mp4",
+        size: "720"
+      },
+      videoLow: {
+        src: "/static/vid/OUldsLhOMtc_0:55-2:27.webm",
+        type: "video/webm",
+        size: "360"
+      },
+      videoPoster: "/static/img/OUldsLhOMtc_0:55-2:27.jpg",
     }
   }
 }

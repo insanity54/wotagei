@@ -22,7 +22,7 @@
     <ul>
       <li>
         <a
-          href="#"
+          href="https://discord.gg/ZGJT88Q"
           target="_blank"
         >
           Discord

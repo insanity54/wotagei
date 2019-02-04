@@ -2,9 +2,9 @@
 <div class="fuwa-furi">
   <h3>Fuwa</h3>
   <vue-plyr>
-    <video poster="/static/img/OUldsLhOMtc_3:52-4:00.jpg" src="/static/vid/OUldsLhOMtc_3:52-4:00.mp4">
-      <source src="/static/vid/OUldsLhOMtc_3:52-4:00.webm" type="video/webm" size="360">
-      <source src="/static/vid/OUldsLhOMtc_3:52-4:00.mp4" type="video/mp4" size="720">
+    <video :poster="videoPoster" :src="videoHigh.src">
+      <source :src="videoLow.src" :type="videoLow.type" :size="videoLow.size">
+      <source :src="videoHigh.src" :type="videoHigh.type" :size="videoHigh.size">
     </video>
   </vue-plyr>
   <a :href="sauce" target="_blank">Video Source</a>
@@ -17,8 +17,19 @@ export default {
   data() {
     return {
       sauce: 'https://www.youtube.com/watch?v=OUldsLhOMtc',
-      ss: '3:52',
-      to: '4:00',
+      ss: '3:53',
+      to: '4:01',
+      videoHigh: {
+        src: "/static/vid/OUldsLhOMtc_3:53-4:01.mp4",
+        type: "video/mp4",
+        size: "720"
+      },
+      videoLow: {
+        src: "/static/vid/OUldsLhOMtc_3:53-4:01.webm",
+        type: "video/webm",
+        size: "360"
+      },
+      videoPoster: "/static/img/OUldsLhOMtc_3:53-4:01.jpg",
     }
   },
 }

@@ -6,10 +6,7 @@
         <router-link to="/calls/hai-chant">Hai Chant</router-link>
       </li>
       <li>
-        <router-link to="/calls/hai-combo">Hai Combo</router-link>
-      </li>
-      <li>
-        <router-link to="/calls/ppph">PPPH</router-link>
+        <router-link to="/calls/hai-combo">Hai Combo / PPPH</router-link>
       </li>
       <li>
         <router-link to="/calls/standard-mix">Standard Mix</router-link>

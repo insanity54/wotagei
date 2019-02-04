@@ -2,9 +2,9 @@
 <div class="kecha-furi">
   <h3>Kecha</h3>
   <vue-plyr>
-    <video poster="/static/img/OUldsLhOMtc_4:00-4:18.jpg" src="/static/vid/OUldsLhOMtc_4:00-4:18.mp4">
-      <source src="/static/vid/OUldsLhOMtc_4:00-4:18.webm" type="video/webm" size="360">
-      <source src="/static/vid/OUldsLhOMtc_4:00-4:18.mp4" type="video/mp4" size="720">
+    <video :poster="videoPoster" :src="videoHigh.src">
+      <source :src="videoLow.src" :type="videoLow.type" :size="videoLow.size">
+      <source :src="videoHigh.src" :type="videoHigh.type" :size="videoHigh.size">
     </video>
   </vue-plyr>
   <a :href="sauce" target="_blank">Video Source</a>
@@ -14,14 +14,22 @@
 <script>
 export default {
   name: 'KechaFuri',
-  components: {
-
-  },
   data() {
     return {
       sauce: 'https://www.youtube.com/watch?v=OUldsLhOMtc',
-      ss: '4:00',
-      to: '4:18',
+      ss: '4:01',
+      to: '4:19',
+      videoHigh: {
+        src: "/static/vid/OUldsLhOMtc_4:01-4:19.mp4",
+        type: "video/mp4",
+        size: "720"
+      },
+      videoLow: {
+        src: "/static/vid/OUldsLhOMtc_4:01-4:19.webm",
+        type: "video/webm",
+        size: "360"
+      },
+      videoPoster: "/static/img/OUldsLhOMtc_4:01-4:19.jpg",
     }
   },
 }

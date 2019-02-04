@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-link to="/"><h1>NorthWestヲタ芸</h1></router-link>
+    <router-link to="/"><h1>NorthWestヲタ</h1></router-link>
     <router-view/>
   </div>
 </template>
