@@ -73,8 +73,7 @@ echo "videoFilenames[0]:${videosFilename[0]}, videoFilenames[1]:${videoFilenames
 
 # Skip download if we already have the video file
 if [ ! -f "../static/vid/${videoFilenames[0]}" ]; then
-  #youtube-dl -f '22/18' -o "%(id)s.%(ext)s" "${video}"
-  echo 'skippin high dl'
+  youtube-dl -f '22/18' -o "%(id)s.%(ext)s" "${video}"
 fi
 
 if [ ! -f "../static/vid/${videoFilenames[1]}" ]; then
@@ -87,9 +86,10 @@ if [ ! -f "../static/img/$thumbnailFilename" ]; then
   ffmpeg -i ${videoFilenames[1]} -ss "${ss}" -vframes 1 -y "../static/img/${thumbnailFilename}"
 fi
 
-# trim high video
-echo -e "\n\n\n\nHERE I GOOOO file:${videoFilenames[0]}, ss:${ss}, to:${to}"
-# ffmpeg -i "${videoFilenames[0]}" -ss "${ss}" -to "${to}" -y -vf drawtext="text='HIGH: fontcolor=white: fontsize=18: x=10: y=5'" ../static/vid/${highFilename}.mp4
+# created trimmed high video if it doesnt exist already
+if [ ! -f "../static/vid/${videoFilenames[1]}" ]; then
+  ffmpeg -i "${videoFilenames[0]}" -ss "${ss}" -to "${to}" -y -vf drawtext="text='HIGH: fontcolor=white: fontsize=18: x=10: y=5'" ../static/vid/${highFilename}.mp4
+fi
 
 # create trimmed low video if it doesnt exist already
 if [ ! -f "../static/vid/${videoFilenames[1]}" ]; then
