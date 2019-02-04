@@ -19,14 +19,32 @@ const extractYummies = (filePath) => {
   const content = fs.readFileSync(filePath, { encoding: 'utf-8' });
 
   // greetz https://stackoverflow.com/a/3809435/1004931
-  const sauceRegex = /sauce:\s+('|")(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))('|")/;
-  const toRegex = /to:\s+('|")(.+)('|")/;
-  const ssRegex = /ss:\s+('|")(.+)('|")/;
-  const sauce = R.match(sauceRegex, content);
-  const to = R.match(toRegex, content);
-  const ss = R.match(ssRegex, content);
-  console.log(`sauce:${sauce[2]}, ss:${ss[2]}, to:${to[2]}`)
-  return { "sauce": sauce[2], "to": to[2], "ss": ss[2] };
+  const sauceRegex = /sauce(\d*):\s+('|")(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))('|")/g;
+  const toRegex = /to(\d*):\s+('|")(.+)('|")/g;
+  const ssRegex = /ss(\d*):\s+('|")(.+)('|")/g;
+
+
+  var results = [];
+  var step;
+  while ((step = sauceRegex.exec(content)) !== null) {
+    const instanceNumber = R.ifElse(R.isEmpty(), R.always(0), R.identity())(step[1]); // step[1] is the number. ex: to2 => 2. to3 => 3
+    if (R.isNil(results[instanceNumber])) results[instanceNumber] = {};
+    results[instanceNumber].sauce = step[3];
+  }
+
+  while ((step = toRegex.exec(content)) !== null) {
+    const instanceNumber = R.ifElse(R.isEmpty(), R.always(0), R.identity())(step[1]); // step[1] is the number. ex: to2 => 2. to3 => 3
+    if (R.isNil(results[instanceNumber])) results[instanceNumber] = {};
+    results[instanceNumber].to = step[3];
+  }
+
+  while ((step = ssRegex.exec(content)) !== null) {
+    const instanceNumber = R.ifElse(R.isEmpty(), R.always(0), R.identity())(step[1]); // step[1] is the number. ex: to2 => 2. to3 => 3
+    if (R.isNil(results[instanceNumber])) results[instanceNumber] = {};
+    results[instanceNumber].ss = step[3];
+  }
+
+  return results;
 };
 
 const harvest = (data) => {
@@ -35,6 +53,7 @@ const harvest = (data) => {
 }
 
 const filterBlanks = (data) => {
+  if (R.isNil(data) || R.isEmpty(data)) return false;
   if (typeof data.sauce !== 'undefined' && typeof data.to !== 'undefined' && typeof data.ss !== 'undefined') return true;
   return false;
 }
@@ -68,7 +87,8 @@ const waitForVueExtraction = waitForFileList.then((componentFiles) => {
 });
 
 const waitForBlankFilter = waitForVueExtraction.then((data) => {
-  return Promise.filter(data, filterBlanks);
+  const d = R.flatten(data);
+  return Promise.filter(d, filterBlanks);
 });
 
 const waitForHarvest = waitForBlankFilter.then((data) => {
