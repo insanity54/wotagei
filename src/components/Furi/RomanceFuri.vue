@@ -1,37 +1,100 @@
 <template>
-<div class="romance-furi">
-  <h3>Romance (ロマンス)</h3>
-  <vue-plyr>
-    <video :poster="videoPoster" :src="videoHigh.src">
-      <source :src="videoLow.src" :type="videoLow.type" :size="videoLow.size">
-      <source :src="videoHigh.src" :type="videoHigh.type" :size="videoHigh.size">
-    </video>
-  </vue-plyr>
-  <a :href="sauce" target="_blank">Video Source</a>
-  <hr>
-  <vue-plyr>
-    <video :poster="videoPoster2" :src="videoHigh2.src">
-      <source :src="videoLow2.src" :type="videoLow2.type" :size="videoLow2.size">
-      <source :src="videoHigh2.src" :type="videoHigh2.type" :size="videoHigh2.size">
-    </video>
-  </vue-plyr>
-  <a :href="sauce2" target="_blank">Video Source</a>
-  <hr>
-  <vue-plyr>
-    <video :poster="videoPoster1" :src="videoHigh1.src">
-      <source :src="videoLow1.src" :type="videoLow1.type" :size="videoLow1.size">
-      <source :src="videoHigh1.src" :type="videoHigh1.type" :size="videoHigh1.size">
-    </video>
-  </vue-plyr>
-  <a :href="sauce1" target="_blank">Video Source</a>
-</div>
+  <v-layout column class="romance-furi">
+    <v-flex mb-4>
+      <h3>Romance (ロマンス)</h3>
+    </v-flex>
+    <v-flex mb-3>
+      <ul>
+        <li>
+          Left
+        </li>
+        <li>
+          Left
+        </li>
+        <li>
+          Right
+        </li>
+        <li>
+          Right
+        </li>
+        <li>
+          Left
+        </li>
+        <li>
+          Right
+        </li>
+        <li>
+          Left
+        </li>
+        <li>
+          Left
+        </li>
+        <li>
+          Right
+        </li>
+        <li>
+          Right
+        </li>
+        <li>
+          Left
+        </li>
+        <li>
+          Left
+        </li>
+        <li>
+          Right
+        </li>
+        <li>
+          Left
+        </li>
+        <li>
+          Right
+        </li>
+        <li>
+          Right
+        </li>
+      </ul>
+    </v-flex>
+    <v-flex mb-3>
+      <img :src="directions" width="80%"></image>
+    </v-flex>
+    <v-flex mb-3>
+      <vue-plyr>
+        <video :poster="videoPoster" :src="videoHigh.src">
+          <source :src="videoLow.src" :type="videoLow.type" :size="videoLow.size">
+          <source :src="videoHigh.src" :type="videoHigh.type" :size="videoHigh.size">
+        </video>
+      </vue-plyr>
+      <a :href="sauce" target="_blank">Video Source</a>
+    </v-flex>
+    <v-flex mb-3>
+      <vue-plyr>
+        <video :poster="videoPoster2" :src="videoHigh2.src">
+          <source :src="videoLow2.src" :type="videoLow2.type" :size="videoLow2.size">
+          <source :src="videoHigh2.src" :type="videoHigh2.type" :size="videoHigh2.size">
+        </video>
+      </vue-plyr>
+      <a :href="sauce2" target="_blank">Video Source</a>
+    </v-flex>
+    <v-flex>
+      <vue-plyr>
+        <video :poster="videoPoster1" :src="videoHigh1.src">
+          <source :src="videoLow1.src" :type="videoLow1.type" :size="videoLow1.size">
+          <source :src="videoHigh1.src" :type="videoHigh1.type" :size="videoHigh1.size">
+        </video>
+      </vue-plyr>
+      <a :href="sauce1" target="_blank">Video Source</a>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
+import directionsImg from '@/assets/romance-directions.jpg';
 export default {
   name: 'RomanceFuri',
   data() {
     return {
+      directions: directionsImg,
       sauce: 'https://www.youtube.com/watch?v=oK96IeXv-ko',
       ss: '0:07',
       to: '0:55',

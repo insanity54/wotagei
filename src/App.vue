@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <v-container id="app">
     <router-link to="/"><h1>NorthWestヲタ</h1></router-link>
     <router-view/>
-  </div>
+  </v-container>
 </template>
 
 <script>

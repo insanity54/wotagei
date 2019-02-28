@@ -19,7 +19,8 @@
     "vue-plyr": "^5.1.0",
     "vue-router": "^3.0.1",
     "vue-vid": "^1.0.2",
-    "vue-video-player": "^5.0.2"
+    "vue-video-player": "^5.0.2",
+    "vuetify": "^1.5.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
